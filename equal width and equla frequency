@@ -1,0 +1,18 @@
+marks <- c(55, 60, 71, 63, 55, 65, 50, 55, 58, 59, 61, 63, 65, 67, 71, 72, 75)
+num_bins <- 3
+
+# Sort marks for equal-frequency partitioning
+sorted_marks <- sort(marks)
+
+# Split into bins manually
+bin_size <- length(sorted_marks) %/% num_bins
+bins <- list(
+  sorted_marks[1:bin_size],
+  sorted_marks[(bin_size+1):(2*bin_size)],
+  sorted_marks[(2*bin_size+1):length(sorted_marks)]
+)
+
+# Calculate mean, median, and range for each bin
+print(sapply(bins, mean))
+print(sapply(bins, median))
+print(sapply(bins, range))
